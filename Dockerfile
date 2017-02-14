@@ -10,4 +10,4 @@ RUN apk add --no-cache build-base git perl zlib-dev && \
     apk del  build-base git perl zlib-dev
 
 USER nobody
-CMD ["/usr/bin/sslscan"]
+ENTRYPOINT ["/usr/bin/sslscan"]
