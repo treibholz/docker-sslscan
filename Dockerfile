@@ -1,4 +1,4 @@
-FROM alpine:3.10.1
+FROM alpine:3.10.2
 
 ENV SSLSCAN_VERSION "1.11.13-rbsec"
 ENV CFLAGS "-D__USE_GNU"
