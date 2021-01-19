@@ -1,6 +1,6 @@
-FROM alpine:3.11.3
+FROM alpine:3.13.0
 
-ENV SSLSCAN_VERSION "master"
+ENV SSLSCAN_VERSION "2.0.6"
 ENV CFLAGS "-D__USE_GNU"
 
 RUN apk add --no-cache --virtual .build-deps build-base git perl zlib-dev libc6-compat binutils linux-headers && \
@@ -8,8 +8,8 @@ RUN apk add --no-cache --virtual .build-deps build-base git perl zlib-dev libc6-
     cd sslscan && \
     make static && make install && \
     cd / && rm -rf sslscan && \
-    strip /usr/bin/sslscan && \
-    apk del .build-deps
+    strip /usr/bin/sslscan
+#    apk del .build-deps
 
 # Start from scratch and only add what is really, really needed, to reduce the
 # size of the image to the absolute minimum 
