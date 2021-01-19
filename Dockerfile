@@ -1,9 +1,9 @@
-FROM alpine:3.10.2
+FROM alpine:3.11.3
 
-ENV SSLSCAN_VERSION "1.11.13-rbsec"
+ENV SSLSCAN_VERSION "master"
 ENV CFLAGS "-D__USE_GNU"
 
-RUN apk add --no-cache --virtual .build-deps build-base git perl zlib-dev libc6-compat binutils && \
+RUN apk add --no-cache --virtual .build-deps build-base git perl zlib-dev libc6-compat binutils linux-headers && \
     git clone --depth 1 -b $SSLSCAN_VERSION https://github.com/rbsec/sslscan.git && \
     cd sslscan && \
     make static && make install && \
