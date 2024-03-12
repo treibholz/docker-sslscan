@@ -1,6 +1,6 @@
-FROM alpine:3.14.2
+FROM alpine:3.19.1
 
-ENV SSLSCAN_VERSION "2.0.10"
+ENV SSLSCAN_VERSION "2.1.3"
 ENV CFLAGS "-D__USE_GNU"
 
 RUN apk add --no-cache --virtual .build-deps build-base git perl zlib-dev libc6-compat binutils linux-headers && \
